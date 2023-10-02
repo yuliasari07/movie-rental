@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Button, Modal, Image, Spinner } from 'react-bootstrap';
 import { getMovieImage } from '../utils';
 import { useMovie } from '../contexts/MovieContext';
-import axios from 'axios';
 
 export default function MovieDetail({show, handleClose, movie}) {
   const [characters, setCharacters] = useState('')
@@ -53,7 +53,7 @@ export default function MovieDetail({show, handleClose, movie}) {
   }
   
   return (
-    <Modal id="movie-details-modal" show={show} onHide={handleClose}>
+    <Modal id="movie-details-modal" show={show} onHide={handleClose} data-testid='movie-detail-modal'>
       <Modal.Header closeButton>
         <Modal.Title>
           {movie?.title}
